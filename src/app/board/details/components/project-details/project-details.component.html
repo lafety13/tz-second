@@ -1,0 +1,52 @@
+<ng-container *ngIf="project() as project">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="w-full max-w-4xl mx-auto bg-white border border-gray-200 rounded-lg shadow-md p-6 space-y-6">
+      <!-- Title -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-800">Project: {{ project.name }}</h2>
+        <p class="text-sm text-gray-500">Owned by {{ project.owner }}</p>
+      </div>
+
+      <!-- Details grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Owner -->
+        <div>
+          <label class="block text-sm font-medium text-gray-500 mb-1">Owner</label>
+          <div class="text-gray-800 font-medium">{{ project.owner }}</div>
+        </div>
+
+        <!-- Status -->
+        <div>
+          <label class="block text-sm font-medium text-gray-500 mb-1">Status</label>
+          <span
+            class="inline-block px-3 py-1 text-sm rounded-full font-semibold"
+            [ngClass]="{
+          'bg-green-100 text-green-700': project.status === 'Completed',
+          'bg-yellow-100 text-yellow-700': project.status === 'In Progress',
+          'bg-red-100 text-red-700': project.status === 'Postponed',
+          'bg-gray-100 text-gray-700': project.status === 'Pending'
+        }"
+          >
+        {{ project.status }}
+      </span>
+        </div>
+
+        <!-- Deadline -->
+        <div>
+          <label class="block text-sm font-medium text-gray-500 mb-1">Deadline</label>
+          <div class="text-gray-800 font-medium">{{ project.deadline | date: 'longDate' }}</div>
+        </div>
+      </div>
+
+      <!-- Back button -->
+      <div>
+        <a
+          routerLink="/board"
+          class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700"
+        >
+          ← Back to Projects
+        </a>
+      </div>
+    </div>
+  </div>
+</ng-container>

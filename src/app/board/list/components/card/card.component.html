@@ -1,0 +1,16 @@
+<div class="max-w-md mx-auto bg-white shadow-lg rounded-xl p-6 border border-gray-200 cursor-pointer hover:shadow transition">
+  <h2 class="text-xl font-semibold text-gray-800 mb-2">Name: <span class="text-blue-600">{{ card.name }}</span></h2>
+
+  <p class="text-gray-600 mb-1">
+    <span class="font-medium">Owner: </span> {{card.owner}}
+  </p>
+
+  <p class="text-gray-600 mb-1">
+    <span class="font-medium">Deadline: </span> {{card.deadline}}
+  </p>
+
+  <p class="text-gray-600">
+    <span class="font-medium">Status: </span>
+    <span class="inline-block px-2 py-0.5 text-sm text-white bg-green-500 rounded">{{card.status}}</span>
+  </p>
+</div>

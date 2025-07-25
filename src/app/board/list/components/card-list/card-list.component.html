@@ -1,0 +1,17 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  @for (status of statuses; track status) {
+    <div class="bg-gray-50 rounded-lg border border-gray-200 shadow-sm flex flex-col">
+      <!-- Column header -->
+      <div class="px-4 py-3 border-b border-gray-200 bg-white rounded-t-lg">
+        <h2 class="text-sm font-semibold text-gray-700">{{ status }}</h2>
+      </div>
+
+      <!-- Card list -->
+      <div class="p-4 flex flex-col gap-4 flex-1 overflow-y-auto">
+        @for (card of cards | filterByStatus:status; track card.id) {
+          <app-card [card]="card" (click)="onCardClick(card)"></app-card>
+        }
+      </div>
+    </div>
+  }
+</div>

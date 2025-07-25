@@ -1,0 +1,12 @@
+<app-board-toolbar (createProject)="onCreateProject()"></app-board-toolbar>
+
+<app-card-list-filter
+  (filterName)="onFilterName($event)"
+  (filterOwner)="onFilterOwner($event)"
+  (filterStatus)="onFilterStatus($event)"
+  (reset)="onResetFilter()"
+></app-card-list-filter>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+  <app-card-list [cards]="cards()"></app-card-list>
+</div>

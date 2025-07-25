@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Landing Page Redesign",
+    "owner": "Igor Sidorov",
+    "deadline": "2025-08-01",
+    "status": "In Progress",
+    "id": "1"
+  },
+  {
+    "name": "CRM Integration",
+    "owner": "Maria Kravchenko",
+    "deadline": "2025-07-28",
+    "status": "Pending",
+    "id": "2"
+  },
+  {
+    "name": "Mobile App UI Revamp",
+    "owner": "Oleg Ivanov",
+    "deadline": "2025-09-15",
+    "status": "Postponed",
+    "id": "3"
+  },
+  {
+    "name": "Mobile App UI Revamp",
+    "owner": "Oleg Ivanov",
+    "deadline": "2025-09-15",
+    "status": "Postponed",
+    "id": "4"
+  }
+]
