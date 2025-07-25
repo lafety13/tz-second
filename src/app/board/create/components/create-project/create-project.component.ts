@@ -1,10 +1,11 @@
-import {Component, EventEmitter, inject, Output} from '@angular/core';
-import {FormBuilder, NonNullableFormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Dialog, DialogRef} from '@angular/cdk/dialog';
+import {Component, inject} from '@angular/core';
+import {NonNullableFormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
+import {DialogRef} from '@angular/cdk/dialog';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {ProjectCard} from '../../../list/interfaces/card.interface';
 
 export interface DialogData {
-  onSave: (data: any, ref: DialogRef) => void;
+  onSave: (data: Omit<ProjectCard, 'id'>, ref: DialogRef) => void;
 }
 
 @Component({
@@ -28,6 +29,6 @@ export class CreateProjectComponent {
   });
 
   submit() {
-    this.data.onSave(this.form.getRawValue(), this.dialogRef)
+    this.data.onSave(this.form.getRawValue() as Omit<ProjectCard, 'id'>, this.dialogRef)
   }
 }

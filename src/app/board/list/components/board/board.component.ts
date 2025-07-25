@@ -2,9 +2,11 @@ import {Component, inject, OnInit} from '@angular/core';
 import {CardsStateService} from '../../services/cards-state.service';
 import {CardListComponent} from '../card-list/card-list.component';
 import {CardListFilterComponent} from '../card-list-filter/card-list-filter.component';
-import {ProjectStatus} from '../../interfaces/card.interface';
+import {ProjectCard, ProjectStatus} from '../../interfaces/card.interface';
 import {BoardToolbarComponent} from '../board-toolbar/board-toolbar.component';
-import {CreateProjectComponent} from '../../../create/components/create-project/create-project.component';
+import {
+  CreateProjectComponent,
+} from '../../../create/components/create-project/create-project.component';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogRef} from '@angular/cdk/dialog';
 
@@ -27,12 +29,15 @@ export class BoardComponent implements OnInit {
   onFilterStatus(query: ProjectStatus | null) {
     this.cardsStateService.filterByStatus(query);
   }
+
   onFilterName(query: string) {
     this.cardsStateService.filterByName(query);
   }
+
   onFilterOwner(query: string) {
     this.cardsStateService.filterByOwner(query);
   }
+
   onResetFilter() {
     this.cardsStateService.resetFilter();
   }
@@ -40,7 +45,7 @@ export class BoardComponent implements OnInit {
   onCreateProject() {
     this.dialog.open(CreateProjectComponent, {
       data: {
-        onSave: (data: any, ref: DialogRef) => {
+        onSave: (data: Omit<ProjectCard, 'id'>, ref: DialogRef) => {
           this.cardsStateService.create(data);
           ref.close();
         }
